@@ -46,7 +46,7 @@ private void siftUp(int toAdd, int curr){
 //this should check and alter the tree after an item is deleted.
 //3 points
 private void siftDown(int curr) {
-    if (lastIndexRight(curr)){
+    if (arr[curr]<arr[(2*curr)+2 && arr[(2*curr)+2]>arr[(2*curr)+1]]){
         if(arr[(2*curr)+2] > arr[curr]){
             int temp = arr[(2*curr)+2];
             arr[(2*curr)+2] = arr[curr];
@@ -54,7 +54,7 @@ private void siftDown(int curr) {
             siftDown((2*curr)+2);
         }
     }
-    else{
+    else if(arr[curr]<arr[(2*curr)+2 && arr[(2*curr)+2]>arr[(2*curr)+1]]){
         if(arr[(2*curr)+1] > arr[curr]){
             int temp = arr[(2*curr)+1];
             arr[(2*curr)+1] = arr[curr];
@@ -65,13 +65,8 @@ private void siftDown(int curr) {
     return;
 }
 
-//checks to see if arr[size] is right of given index on the binary tree
-private boolean lastIndexRight(int curr){
 
-}
 
 //4 points for syntax conventions.
-
- 
 
 }
