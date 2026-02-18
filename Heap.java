@@ -65,8 +65,17 @@ private void siftDown(int curr) {
     return;
 }
 
-
+Public static void main(String[] args) {
+    Heap h = new Heap();
+    h.add(5);
+    h.add(10);
+    h.add(3);
+    h.add(8);
+    h.add(2);
+    System.out.println(h.arr[0]); // should print 10
+    h.removeMax();
+    System.out.println(h.arr[0]); // should print 8
+}
 
 //4 points for syntax conventions.
-
 }
