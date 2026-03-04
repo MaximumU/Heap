@@ -18,7 +18,7 @@ public Heap() {
 public void add(int toAdd) {
     int curr = size;
     arr[curr] = toAdd;
-    siftUp(toAdd, curr);
+    siftUp(curr);
     size ++;
 }
 
@@ -34,35 +34,36 @@ public void removeMax() {
 
 //this should check and alter the tree after an item is inserted
 //3 points
-private void siftUp(int toAdd, int curr){
+private void siftUp(int curr){
     if(arr[curr] > arr[(curr-1)/2]){
         int temp = arr[(curr-1)/2];
         arr[(curr-1)/2] = arr[curr];
         arr[curr] = temp;
-        siftUp(toAdd,(curr-1)/2);
+        siftUp((curr-1)/2);
     }
 }
 
 //this should check and alter the tree after an item is deleted.
 //3 points
 private void siftDown(int curr) {
-    if (arr[curr] < arr[(2*curr)+2] && arr[(2*curr)+2]>arr[(2*curr)+1]){
-        if(arr[(2*curr)+2] > arr[curr]){
-            int temp = arr[(2*curr)+2];
-            arr[(2*curr)+2] = arr[curr];
-            arr[curr] = temp;
-            siftDown((2*curr)+2);
-        }
+    if((2*curr)+1>=size){
+        return;
     }
-    else if(arr[curr]<arr[(2*curr)+2] && arr[(2*curr)+2]>arr[(2*curr)+1]){
-        if(arr[(2*curr)+1] > arr[curr]){
+    if(arr[curr]<arr[(2*curr)+1] && arr[(2*curr)+2]<arr[(2*curr)+1]){
             int temp = arr[(2*curr)+1];
             arr[(2*curr)+1] = arr[curr];
             arr[curr] = temp;
             siftDown((2*curr)+1);
-        }
     }
-    return;
+    if((2*curr)+2>=size){
+        return;
+    }
+    if (arr[curr] < arr[(2*curr)+2] && arr[(2*curr)+2]>arr[(2*curr)+1]){
+            int temp = arr[(2*curr)+2];
+            arr[(2*curr)+2] = arr[curr];
+            arr[curr] = temp;
+            siftDown((2*curr)+2);
+    }
 }
 
 public static void main(String[] args) {
